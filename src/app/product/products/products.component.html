@@ -1,0 +1,10 @@
+<div class="error">{{errorMessage}}</div>
+<h4>List of Products</h4>
+
+<div *ngFor="let product of (appData$ | async).products;">
+  <a [routerLink]="['/product', product.id, {fromView: 'PRODUCTSVIEW'}]" routerLinkActive="active">{{product.name}}</a>
+</div>
+<p>&nbsp;</p>
+<p>
+<button *ngIf="stData.user.appRoles.includes('ADMIN')" (click)="addProduct()" routerLinkActive="active">Add Product</button>
+</p>

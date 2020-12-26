@@ -1,0 +1,8 @@
+<div *ngIf="(appData$ | async).product as product">
+    <h3>{{ product.name }} Details</h3>
+    <div>Price: {{product.price | currency}}</div>
+
+<br>
+<button *ngIf="fromView !== 'CARTVIEW'" (click)="addToCart(product.id)" routerLinkActive="active">Add-to-Cart</button> &nbsp;
+<button (click)="backTo()" routerLinkActive="active">Back</button> &nbsp; &nbsp;
+</div>
