@@ -12,6 +12,7 @@ import { AppViewState } from './state-transitions/view-states.enum';
 })
 export class AppComponent implements OnInit {
 
+  title = "angular-development-a-new-perspective";
   appData$: Observable<AppData>;
 
   constructor(private appDataStore: AppDataStore, private router: Router) {

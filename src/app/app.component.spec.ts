@@ -28,8 +28,9 @@ describe('AppComponent', () => {
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
+    fixture.componentInstance.title = 'angular-development-a-new-perspective';
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular-development-a-new-perspective app is running!');
+    expect(compiled.querySelector('section h2').textContent).toContain('Angular View Transitions');
   });
 });
