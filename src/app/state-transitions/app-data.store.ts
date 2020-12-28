@@ -6,6 +6,7 @@ import { AppViewState } from './view-states.enum';
 import { Product } from '../product/product.model';
 import { UserService } from './user.service';
 import { User } from './user.model';
+import { first } from 'rxjs/operators';
 
 /**
  * This class will manage all the data needed for the the SPA
@@ -28,7 +29,7 @@ export class AppDataStore extends Store<AppData>{
     //TODO: get authenticated user from localStorage or from login
     const user: User = new User();
     user.id = "admin-user";
-    this.userService.getUserRoles(user.id).subscribe(ur => {
+    this.userService.getUserRoles(user.id).pipe(first(),).subscribe(ur => {
       user.appRoles = ur;
       this.state.user = user;
     });
@@ -36,15 +37,12 @@ export class AppDataStore extends Store<AppData>{
 
   loadProducts(): void {
     if (this.state.products.length === 0) {
-      this.productsService.getProducts().subscribe(prods => this.state.products = prods);
+      this.productsService.getProducts().pipe(first(),).subscribe(products => this.setState({
+        ...this.state,
+        products: products
+      }));
     }
   }
-
-  // loadProductDetails(id: number) {
-  //   if (!this.state.product.id || this.state.product.id != id) {
-  //     this.productsService.getProductDetails(id).subscribe(prod => this.state.product = prod);
-  //   }
-  // }
 
   loadProduct(productId: number) {
     //TODO: call the productService to get product details
@@ -58,7 +56,6 @@ export class AppDataStore extends Store<AppData>{
   addProduct(product: Product): Product {
     //TODO: call the productService to persit and get id
     product.id = this.state.products.length + 1;
-    console.log(">> pr: ", product);
     this.setState({
       ...this.state,
       products: [...this.state.products, product]

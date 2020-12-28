@@ -1,14 +1,14 @@
 /**
- *   DEFAULT -> onload -> processLogin() -> onload_succcess -> ONLOADSUCCESSVIEW
- *   ONLOADSUCCESSVIEW -> get_products -> processGetProducts() -> get_products_succcess -> PRODUCTSVIEW
- *   PRODUCTSVIEW -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
- *   PRODUCTDETAILSVIEW -> add_to_cart -> processAddToCart() -> add_to_cart_success -> ADDTOCARTSUCCESSVIEW
- *   ONLOADSUCCESSVIEW -> get_cart -> processGetCart() -> get_cart_success -> CARTVIEW
- *   PRODUCTDETAILSVIEW -> get_products -> processGetProducts() -> get_products_succcess -> PRODUCTSVIEW
- *   CARTVIEW -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
- *   PRODUCTDETAILSVIEW -> get_cart -> processGetCart() -> get_cart_success -> CARTVIEW
- *   ONLOADSUCCESSVIEW -> add_product_form -> processAddProductForm() -> add_product_form_succcess -> ADDPRODUCTFORMSUCCESSVIEW
- *   ADDPRODUCTFORMSUCCESSVIEW -> add_product -> processAddProduct() -> add_product_succcess -> ADDPRODUCTSUCCESSVIEW
+DEFAULT                   -> onload              -> processOnload()            -> onload_succcess             -> ONLOADSUCCESSVIEW
+ONLOADSUCCESSVIEW         -> get_products        -> processGetProducts()       -> get_products_succcess       -> PRODUCTSVIEW
+PRODUCTSVIEW              -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
+PRODUCTDETAILSVIEW        -> add_to_cart         -> processAddToCart()         -> add_to_cart_success         -> ADDTOCARTSUCCESSVIEW
+ADDTOCARTSUCCESSVIEW      -> get_cart            -> processGetCart()           -> get_cart_success            -> CARTVIEW
+PRODUCTDETAILSVIEW        -> get_products        -> processGetProducts()       -> get_products_succcess       -> PRODUCTSVIEW
+CARTVIEW                  -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
+PRODUCTDETAILSVIEW        -> get_cart            -> processGetCart()           -> get_cart_success            -> CARTVIEW
+PRODUCTSVIEW              -> add_product_form    -> processAddProductForm()    -> add_product_form_succcess   -> ADDPRODUCTFORMSUCCESSVIEW
+ADDPRODUCTFORMSUCCESSVIEW -> add_product         -> processAddProduct()        -> add_product_succcess        -> ADDPRODUCTSUCCESSVIEW
  */
 import { first } from 'rxjs/operators';
 import { AppDataStore } from './app-data.store'
@@ -127,11 +127,11 @@ export const AppPostEvents = {
 }
 
 export function doTransition(appDataStore: AppDataStore, stData: StateTransitionData): StateTransitionData {
-    appDataStore.state$.pipe(first()).subscribe(ad => {
+    appDataStore.state$.pipe(first(),).subscribe(ad => {
         stData.user = ad.user;
-        stData = AppPreEvents[stData.preEvent].process(stData, appDataStore);
-        stData = AppPostEvents[stData.postEvent].nextState(stData, appDataStore);
     });
+    stData = AppPreEvents[stData.preEvent].process(stData, appDataStore);
+    stData = AppPostEvents[stData.postEvent].nextState(stData, appDataStore);
     return stData;
 }
 
