@@ -30,7 +30,7 @@ This project proposes a development pattern for Angular SPAs. The pattern suggge
 
 ## Benefits
 
-The pattern provides a clear guideline when a new feature need to be added. For instance, if a new requirement like "if user not logged in then redirect to login page" need to be be added then the developer can proceed by writing the state transition like:
+1. The pattern provides a clear guideline when a new feature need to be added. For instance, if a new requirement like "if user not logged in then redirect to login page" need to be be added then the developer can proceed by writing the state transition like:
 
    <pre>
    DEFAULT       -> onload -> processOnload() -> onload_auth_error -> LOGINFORMVIEW
@@ -38,3 +38,6 @@ The pattern provides a clear guideline when a new feature need to be added. For 
    </pre>
 
 and proceed with the remaining steps.
+
+2. The use of one component per pre-event helps in keeping the codebase modular
+
