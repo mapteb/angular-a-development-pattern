@@ -7,7 +7,7 @@ This project proposes a development pattern for Angular SPAs. The pattern suggge
 
    <pre>
    =================================================================================================================================
-      Initial State         |  Pre-event            |   Processor                |      Post-event               |     Final State
+      **Initial State         |  **Pre-event**       |   **Processor**            |      **Post-event**           |  **Final State**
    =================================================================================================================================
    DEFAULT                   -> onload              -> processOnload()            -> onload_succcess             -> ONLOADSUCCESSVIEW
    ONLOADSUCCESSVIEW         -> get_products        -> processGetProducts()       -> get_products_succcess       -> PRODUCTSVIEW
