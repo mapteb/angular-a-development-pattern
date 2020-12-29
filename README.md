@@ -43,8 +43,8 @@ A demo of this project can be viewed [here](https://mapteb.github.io/angular-a-d
    LOGINFORMVIEW -> login  -> processLogin()  -> login_success     -> ONLOADSUCCESSVIEW
    </pre>
 
-and proceed with the remaining steps.
-2. Guard conditions are easily implemented in one place - in the state-transitions.ts file.
-3. The use of one component per pre-event helps in keeping the codebase modular.
-4. The state
+and proceed with the remaining steps.  
+2. Guard conditions are easily implemented in one place - in the state-transitions.ts file.  
+3. The use of one component per pre-event helps in keeping the codebase modular.  
+4. The state transitions list also serves as a comprehensive test cases checklist.  
 
