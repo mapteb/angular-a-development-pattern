@@ -3,7 +3,7 @@
 This project proposes a development pattern for Angular SPAs. The pattern sugggests the following steps:
 
 1. Capture the SPA requirements into a set of state transitions.
-   For the demo example SPA considered in this project, the state transitions used are:
+   For the [demo example SPA](https://mapteb.github.io/angular-a-development-pattern) considered in this project, the state transitions used are:
 
    <pre>
    =================================================================================================================================
@@ -22,15 +22,19 @@ This project proposes a development pattern for Angular SPAs. The pattern suggge
    =================================================================================================================================
    </pre>
 
-2. Configure the events and view states in TypeScript enums ([app-events.enum.ts](https://github.com/mapteb/angular-a-development-pattern/blob/main/src/app/state-transitions/app-events.enum.ts) and [view-states.enum.ts](https://github.com/mapteb/angular-a-development-pattern/blob/main/src/app/state-transitions/view-states.enum.ts)) and the transitions as const variables (state-transions.ts)
+2. Configure the events and view states in TypeScript enums ([app-events.enum.ts](https://github.com/mapteb/angular-a-development-pattern/blob/main/src/app/state-transitions/app-events.enum.ts) and [view-states.enum.ts](https://github.com/mapteb/angular-a-development-pattern/blob/main/src/app/state-transitions/view-states.enum.ts)) and the transitions as const variables [state-transions.ts](https://github.com/mapteb/angular-a-development-pattern/blob/main/src/app/state-transitions/state-transitions.ts)
 
 3. Create one Angular component for each pre-event.
 
 4. Configure each pre-event URL in app-routing.module.ts
 
-## Benefits
+### Demo
 
-1. The pattern provides a clear guideline when a new feature need to be added. For instance, if a new requirement like "if user not logged in then redirect to login page" need to be be added then the developer can proceed by writing the state transition like:
+A demo of this project can be viewed [here](https://mapteb.github.io/angular-a-development-pattern) where all the state transitions listed above can be tested.
+
+### Benefits
+
+1. The pattern provides a clear guideline when a new feature need to be added. For instance, if a new requirement like "if the user is not logged in then redirect to login page" need to be be added then the developer can proceed by writing additional state transitions like:
 
    <pre>
    DEFAULT       -> onload -> processOnload() -> onload_auth_error -> LOGINFORMVIEW
