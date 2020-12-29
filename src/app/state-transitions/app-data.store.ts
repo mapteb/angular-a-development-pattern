@@ -9,9 +9,11 @@ import { User } from './user.model';
 import { first } from 'rxjs/operators';
 
 /**
- * This class will manage all the data needed for the the SPA
- * like when to persist/refresh from backend,
- * when to persist/refresh from localStorage etc.
+ * This class will serve as a central data store for all the data used in the application.
+ * This class allso manages when to persist/refresh data to/from the backend,
+ * and when to persist/refresh from localStorage etc.
+ * 
+ * This class is currently using the rxjs-observable-store https://github.com/georgebyte/rxjs-observable-store utility.
  */
 @Injectable({
   providedIn: 'root'
