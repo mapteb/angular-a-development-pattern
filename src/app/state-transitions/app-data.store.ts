@@ -56,12 +56,10 @@ export class AppDataStore extends Store<AppData>{
   }
 
   addProduct(product: Product): Product {
-    //TODO: call the productService to persit and get id
-    product.id = this.state.products.length + 1;
-    this.setState({
+    this.productsService.addProduct(product).pipe(first(),).subscribe(p => this.setState({
       ...this.state,
-      products: [...this.state.products, product]
-    });
+      products: [...this.state.products, p]
+    }));
     return product;
   }
 

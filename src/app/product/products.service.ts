@@ -8,15 +8,17 @@ import { Product } from './product.model';
 })
 export class ProductsService {
 
+  productsCount: number = 0;
+
   constructor() { }
 
   public getProducts(): Observable<Product[]> {
     //TODO: call a REST service to get the products
-    return of([new Product(1, "product_1", 12.11), new Product(2, "product_2", 22.70)]);
+    return of([new Product(++this.productsCount, "product_1", 12.11), new Product(++this.productsCount, "product_2", 22.70)]);
   }
 
-  // public getProductDetails(id: number): Observable<Product> {
-  //   //TODO: call a REST service to get the products
-  //   return of(new Product(id, "product_" + id, id*1.25));
-  // }
+  public addProduct(product: Product): Observable<Product> {
+    //TODO: call a REST service to get the products
+    return of(new Product(++this.productsCount, product.name,product.price));
+  }
 }
