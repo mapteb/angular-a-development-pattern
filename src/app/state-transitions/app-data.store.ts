@@ -13,7 +13,7 @@ import { first } from 'rxjs/operators';
  * This class allso manages when to persist/refresh data to/from the backend,
  * and when to persist/refresh from localStorage etc.
  * 
- * This class is currently using the [rxjs-observable-store](https://github.com/georgebyte/rxjs-observable-store) utility.
+ * This class is currently using the [rxjs-observable-store]{@link https://github.com/georgebyte/rxjs-observable-store} utility.
  */
 @Injectable({
   providedIn: 'root'
