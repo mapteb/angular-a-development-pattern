@@ -3,7 +3,7 @@
 This project proposes a development pattern for Angular SPAs. The pattern sugggests the following steps:
 
 1. Capture the SPA requirements into a set of state transitions.
-   For the [demo example SPA](https://mapteb.github.io/angular-a-development-pattern) considered in this project, the state transitions used are:
+   For the [demo example SPA](https://mapteb.github.io/angular-a-development-pattern), the state transitions considered are:
 
    <pre>
    =================================================================================================================================
@@ -21,6 +21,8 @@ This project proposes a development pattern for Angular SPAs. The pattern suggge
    ADDPRODUCTFORMSUCCESSVIEW -> add_product         -> processAddProduct()        -> add_product_succcess        -> ADDPRODUCTSUCCESSVIEW
    =================================================================================================================================
    </pre>
+
+   Please note that error conditions like add_product_error etc., are not considered in the above list but can be easily added as additional state tranitions where needed.
 
 2. Configure the events and view states in TypeScript enums ([app-events.enum.ts](https://github.com/mapteb/angular-a-development-pattern/blob/main/src/app/state-transitions/app-events.enum.ts) and [view-states.enum.ts](https://github.com/mapteb/angular-a-development-pattern/blob/main/src/app/state-transitions/view-states.enum.ts)) and the transitions as const variables [state-transions.ts](https://github.com/mapteb/angular-a-development-pattern/blob/main/src/app/state-transitions/state-transitions.ts)
 
@@ -42,6 +44,7 @@ A demo of this project can be viewed [here](https://mapteb.github.io/angular-a-d
    </pre>
 
 and proceed with the remaining steps.
-
-2. The use of one component per pre-event helps in keeping the codebase modular
+2. Guard conditions are easily implemented in one place - in the state-transitions.ts file.
+3. The use of one component per pre-event helps in keeping the codebase modular.
+4. The state
 
