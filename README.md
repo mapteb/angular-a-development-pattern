@@ -22,11 +22,11 @@ This project proposes a development pattern for Angular SPAs. The pattern suggge
    =================================================================================================================================
    </pre>
 
-2. Configure the events and view states in TypeScript enums (app-events.enum.ts and view-states.enum.ts) and the transitions as const variables (state-transions.ts)
+2. Configure the events and view states in TypeScript enums ([app-events.enum.ts](https://github.com/mapteb/angular-a-development-pattern/blob/main/src/app/state-transitions/app-events.enum.ts) and [view-states.enum.ts](https://github.com/mapteb/angular-a-development-pattern/blob/main/src/app/state-transitions/view-states.enum.ts)) and the transitions as const variables (state-transions.ts)
 
-3. Create one Angular component for each pre-event (home.component.ts, products.component.ts, product-details.component.ts etc.)
+3. Create one Angular component for each pre-event.
 
-4. Configure each pre-event in app-routing.module.ts
+4. Configure each pre-event URL in app-routing.module.ts
 
 ## Benefits
 
