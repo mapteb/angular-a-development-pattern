@@ -14,9 +14,7 @@ This project proposes a development pattern for Angular SPAs. The pattern suggge
    PRODUCTSVIEW              -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
    PRODUCTDETAILSVIEW        -> add_to_cart         -> processAddToCart()         -> add_to_cart_success         -> ADDTOCARTSUCCESSVIEW
    ADDTOCARTSUCCESSVIEW      -> get_cart            -> processGetCart()           -> get_cart_success            -> CARTVIEW
-   PRODUCTDETAILSVIEW        -> get_products        -> processGetProducts()       -> get_products_succcess       -> PRODUCTSVIEW
    CARTVIEW                  -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
-   PRODUCTDETAILSVIEW        -> get_cart            -> processGetCart()           -> get_cart_success            -> CARTVIEW
    PRODUCTSVIEW              -> add_product_form    -> processAddProductForm()    -> add_product_form_succcess   -> ADDPRODUCTFORMSUCCESSVIEW
    ADDPRODUCTFORMSUCCESSVIEW -> add_product         -> processAddProduct()        -> add_product_succcess        -> ADDPRODUCTSUCCESSVIEW
    =================================================================================================================================
@@ -28,7 +26,7 @@ This project proposes a development pattern for Angular SPAs. The pattern suggge
 
 3. Create one Angular component for each pre-event.
 
-4. Configure each pre-event URL in app-routing.module.ts
+4. Configure routes for each pre-event URL in app-routing.module.ts
 
 ### Demo
 
@@ -45,6 +43,6 @@ A demo of this project can be viewed [here](https://mapteb.github.io/angular-a-d
 
 and proceed with the remaining steps.  
 2. Guard conditions are easily implemented in one place - in the state-transitions.ts file.  
-3. The use of one component per pre-event helps in keeping the codebase modular.  
-4. The state transitions list also serves as a comprehensive test cases checklist.  
+3. The use of one component per pre-event helps in keeping the codebase modular and easily maintainable.   
+
 
