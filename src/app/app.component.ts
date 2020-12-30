@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AppDataStore } from './state-transitions/app-data.store';
 import { AppData } from './state-transitions/state-transitions.model';
-import { AppViewState } from './state-transitions/view-states.enum';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +19,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
     this.router.navigate(["/home"]);
   }
 }
