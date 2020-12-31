@@ -129,9 +129,9 @@ export const AppPostEvents = {
 export function doTransition(appDataStore: AppDataStore, stData: StateTransitionData): StateTransitionData {
     appDataStore.state$.pipe(first(),).subscribe(ad => {
         stData.user = ad.user;
+        stData = AppPreEvents[stData.preEvent].process(stData, appDataStore);
+        stData = AppPostEvents[stData.postEvent].nextState(stData, appDataStore);
     });
-    stData = AppPreEvents[stData.preEvent].process(stData, appDataStore);
-    stData = AppPostEvents[stData.postEvent].nextState(stData, appDataStore);
     return stData;
 }
 

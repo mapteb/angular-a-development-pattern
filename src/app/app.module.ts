@@ -12,16 +12,7 @@ import { ProductsComponent } from './product/products/products.component';
 import { AddToCartComponent } from './product/add-to-cart/add-to-cart.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { AddProductFormComponent } from './product/add-product-form/add-product-form.component';
-
-/**
- *   DEFAULT -> onload -> processOnload() -> onload_succcess -> ONLOASUCCESSDVIEW
- *   ONLOADSUCCESSVIEW -> get_products -> processGetProducts() -> get_products_succcess -> PRODUCTSVIEW
- *   PRODUCTSVIEW -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
- *   PRODUCTDETAILSVIEW -> add_to_cart -> processAddToCart() -> add_to_cart_success -> ADDTOCARTSUCCESSVIEW
- *   ADDTOCARTSUCCESSVIEW -> get_cart -> processGetCart() -> get_cart_success -> CARTVIEW
- *   CARTVIEW -> get_products -> processGetProducts() -> get_products_succcess -> PRODUCTSVIEW
- */
-
+import { CartButtonComponent } from './cart/cart-button/cart-button.component';
 
 @NgModule({
   imports: [
@@ -39,7 +30,8 @@ import { AddProductFormComponent } from './product/add-product-form/add-product-
     CartComponent,
     AddToCartComponent,
     AddProductComponent,
-    AddProductFormComponent
+    AddProductFormComponent,
+    CartButtonComponent
   ],
   bootstrap: [ AppComponent ]
 })

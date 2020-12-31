@@ -1,0 +1,3 @@
+<a *ngIf="(appData$ | async).cartProducts as cartProducts" [routerLink]="['/cart', {fromView: 'ONLOADSUCCESSVIEW'}]" routerLinkActive="active">
+    Cart({{cartProducts.length}})
+  </a>

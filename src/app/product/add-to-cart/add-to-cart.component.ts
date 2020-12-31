@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppDataStore } from 'src/app/state-transitions/app-data.store';
 import { AppEvent } from 'src/app/state-transitions/app-events.enum';

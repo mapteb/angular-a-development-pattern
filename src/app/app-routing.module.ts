@@ -8,6 +8,7 @@ import { CartComponent } from './cart/cart.component';
 import { AddToCartComponent } from './product/add-to-cart/add-to-cart.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { AddProductFormComponent } from './product/add-product-form/add-product-form.component';
+import { CartButtonComponent } from './cart/cart-button/cart-button.component';
 
 const appRoutes: Routes = [
   {
@@ -29,6 +30,10 @@ const appRoutes: Routes = [
   {
     path: 'add-to-cart',
     component: AddToCartComponent
+  },
+  {
+    path: 'cart-button',
+    component: CartButtonComponent
   },
   {
     path: 'cart',
