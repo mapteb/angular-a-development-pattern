@@ -6,9 +6,11 @@ This project proposes a development pattern for Angular SPAs. The pattern sugges
    For the [demo example SPA](https://mapteb.github.io/angular-a-development-pattern), the state transitions considered are:
 
    <pre>
-   =================================================================================================================================
+   ______________________________________________________________________________________________________________________________________________________
+   
       <strong>Initial State</strong>          |  <strong>Pre-event</strong>           |   <strong>Processor</strong>                |      <strong>Post-event</strong>               |  <strong>Final State</strong>
-   =================================================================================================================================
+   ______________________________________________________________________________________________________________________________________________________
+   
    DEFAULT                   -> onload              -> processOnload()            -> onload_succcess             -> ONLOADSUCCESSVIEW
    ONLOADSUCCESSVIEW         -> get_products        -> processGetProducts()       -> get_products_succcess       -> PRODUCTSVIEW
    PRODUCTSVIEW              -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
@@ -17,7 +19,7 @@ This project proposes a development pattern for Angular SPAs. The pattern sugges
    CARTVIEW                  -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
    PRODUCTSVIEW              -> add_product_form    -> processAddProductForm()    -> add_product_form_succcess   -> ADDPRODUCTFORMSUCCESSVIEW
    ADDPRODUCTFORMSUCCESSVIEW -> add_product         -> processAddProduct()        -> add_product_succcess        -> ADDPRODUCTSUCCESSVIEW
-   =================================================================================================================================
+   _________________________________________________________________________________________________________________________________
    </pre>
 
    Please note that error conditions like add_product_error etc., are not considered in the above list but can be easily added as additional state tranitions where needed.
@@ -44,5 +46,3 @@ A demo of this project can be viewed [here](https://mapteb.github.io/angular-a-d
 and proceed with the remaining steps.  
 2. Guard conditions are easily implemented in one place - in the state-transitions.ts file.  
 3. The use of one component per pre-event helps in keeping the codebase modular and easily maintainable.   
-
-
