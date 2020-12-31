@@ -6,10 +6,10 @@ This project proposes a development pattern for Angular SPAs. The pattern sugges
    For the [demo example SPA](https://mapteb.github.io/angular-a-development-pattern), the state transitions considered are:
 
    <pre>
-   ______________________________________________________________________________________________________________________________________________________
+   ______________________________________________________________________________________________________________________________________
    
       <strong>Initial State</strong>          |  <strong>Pre-event</strong>           |   <strong>Processor</strong>                |      <strong>Post-event</strong>               |  <strong>Final State</strong>
-   ______________________________________________________________________________________________________________________________________________________
+   ______________________________________________________________________________________________________________________________________
    
    DEFAULT                   -> onload              -> processOnload()            -> onload_succcess             -> ONLOADSUCCESSVIEW
    ONLOADSUCCESSVIEW         -> get_products        -> processGetProducts()       -> get_products_succcess       -> PRODUCTSVIEW
@@ -19,7 +19,7 @@ This project proposes a development pattern for Angular SPAs. The pattern sugges
    CARTVIEW                  -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
    PRODUCTSVIEW              -> add_product_form    -> processAddProductForm()    -> add_product_form_succcess   -> ADDPRODUCTFORMSUCCESSVIEW
    ADDPRODUCTFORMSUCCESSVIEW -> add_product         -> processAddProduct()        -> add_product_succcess        -> ADDPRODUCTSUCCESSVIEW
-   _________________________________________________________________________________________________________________________________
+   ______________________________________________________________________________________________________________________________________
    </pre>
 
    Please note that error conditions like add_product_error etc., are not considered in the above list but can be easily added as additional state tranitions where needed.
