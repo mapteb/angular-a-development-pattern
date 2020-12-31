@@ -40,10 +40,11 @@ export class ProductDetailsComponent implements OnInit {
       this.stData.productId = Number(this.activatedRoute.snapshot.params.id);
       this.fromView = this.activatedRoute.snapshot.params.fromView;
     }
-    
+    this.stData.initState = this.fromView;
     this.stData.preEvent = AppEvent.get_product_details;
     this.stData = doTransition(this.appDataStore, this.stData);
-    if (this.stData.finalState !== AppViewState.PRODUCTDETAILSVIEW) {
+    if (!(this.stData.finalState === AppViewState.PRODUCTDETAILSVIEW ||
+      this.stData.finalState === AppViewState.PRODUCTDETAILSFORCARTVIEW)) {
       this.router.navigate(['/**'])
     }
   }
@@ -53,11 +54,11 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   backTo() {
-    if (this.fromView === AppViewState.PRODUCTSVIEW) {
+    if (this.stData.finalState === AppViewState.PRODUCTDETAILSVIEW) {
       this.router.navigate(['/products', {fromView: AppViewState.PRODUCTDETAILSVIEW}]);
     }
-    else if (this.fromView === AppViewState.CARTVIEW) {
-      this.router.navigate(['/cart', {fromView: AppViewState.PRODUCTDETAILSVIEW}]);
+    else if (this.stData.finalState === AppViewState.PRODUCTDETAILSFORCARTVIEW) {
+      this.router.navigate(['/cart', {fromView: AppViewState.PRODUCTDETAILSFORCARTVIEW}]);
     }
     else {
       this.router.navigate(['/**']);

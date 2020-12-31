@@ -3,10 +3,9 @@ DEFAULT                   -> onload              -> processOnload()            -
 ONLOADSUCCESSVIEW         -> get_products        -> processGetProducts()       -> get_products_succcess       -> PRODUCTSVIEW
 PRODUCTSVIEW              -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
 PRODUCTDETAILSVIEW        -> add_to_cart         -> processAddToCart()         -> add_to_cart_success         -> ADDTOCARTSUCCESSVIEW
-ADDTOCARTSUCCESSVIEW      -> get_cart            -> processGetCart()           -> get_cart_success            -> CARTVIEW
-PRODUCTDETAILSVIEW        -> get_products        -> processGetProducts()       -> get_products_succcess       -> PRODUCTSVIEW
-CARTVIEW                  -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
-PRODUCTDETAILSVIEW        -> get_cart            -> processGetCart()           -> get_cart_success            -> CARTVIEW
+ADDTOCARTSUCCESSVIEW      -> update_cartcount    -> processUpdateCartCount()   -> update_cartcount_success    -> UPDATECARTCOUNTSUCCESSVIEW
+UPDATECARTCOUNTSUCCESSVIEW-> get_cart            -> processGetCart()           -> get_cart_success            -> CARTVIEW
+CARTVIEW                  -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSFORCARTVIEW
 PRODUCTSVIEW              -> add_product_form    -> processAddProductForm()    -> add_product_form_succcess   -> ADDPRODUCTFORMSUCCESSVIEW
 ADDPRODUCTFORMSUCCESSVIEW -> add_product         -> processAddProduct()        -> add_product_succcess        -> ADDPRODUCTSUCCESSVIEW
  */
@@ -73,6 +72,12 @@ export const AppPreEvents = {
             return stData;
         }
     },
+    update_cartcount: {
+        process: function (stData: StateTransitionData, appDataStore: AppDataStore): StateTransitionData {
+            stData.postEvent = AppEvent.update_cartcount_success;
+            return stData;
+        }
+    },
     get_cart: {
         process: function (stData: StateTransitionData, appDataStore: AppDataStore): StateTransitionData {
             stData.postEvent = AppEvent.get_cart_success;
@@ -96,13 +101,24 @@ export const AppPostEvents = {
     },
     get_product_details_success: {
         nextState: function (stData: StateTransitionData, appDataStore: AppDataStore): StateTransitionData {
-            stData.finalState = AppViewState.PRODUCTDETAILSVIEW;
+            if (stData.initState === AppViewState.PRODUCTSVIEW) {
+                stData.finalState = AppViewState.PRODUCTDETAILSVIEW;
+            }
+            else if (stData.initState === AppViewState.CARTVIEW) {
+                stData.finalState = AppViewState.PRODUCTDETAILSFORCARTVIEW;
+            }
             return stData;
         }
     },
     add_to_cart_success: {
         nextState: function (stData: StateTransitionData, appDataStore: AppDataStore): StateTransitionData {
             stData.finalState = AppViewState.ADDTOCARTSUCCESSVIEW;
+            return stData;
+        }
+    },
+    update_cartcount_success: {
+        nextState: function (stData: StateTransitionData, appDataStore: AppDataStore): StateTransitionData {
+            stData.finalState = AppViewState.UPDATECARTCOUNTSUCCESSVIEW;
             return stData;
         }
     },
@@ -129,9 +145,9 @@ export const AppPostEvents = {
 export function doTransition(appDataStore: AppDataStore, stData: StateTransitionData): StateTransitionData {
     appDataStore.state$.pipe(first(),).subscribe(ad => {
         stData.user = ad.user;
-        stData = AppPreEvents[stData.preEvent].process(stData, appDataStore);
-        stData = AppPostEvents[stData.postEvent].nextState(stData, appDataStore);
     });
+    stData = AppPreEvents[stData.preEvent].process(stData, appDataStore);
+    stData = AppPostEvents[stData.postEvent].nextState(stData, appDataStore);
     return stData;
 }
 

@@ -9,6 +9,8 @@ export enum AppEvent {
     get_product_details_success = "get_product_details_success",
     add_to_cart =  "add_to_cart",
     add_to_cart_success = "add_to_cart_success",
+    update_cartcount =  "update_cartcount",
+    update_cartcount_success = "update_cartcount_success",
     get_cart = "get_cart",
     get_cart_success = "get_cart_success",
     add_product = "add_product",

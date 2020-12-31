@@ -15,7 +15,8 @@ This project proposes a development pattern for Angular SPAs. The pattern sugges
    ONLOADSUCCESSVIEW         -> get_products        -> processGetProducts()       -> get_products_succcess       -> PRODUCTSVIEW
    PRODUCTSVIEW              -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
    PRODUCTDETAILSVIEW        -> add_to_cart         -> processAddToCart()         -> add_to_cart_success         -> ADDTOCARTSUCCESSVIEW
-   ADDTOCARTSUCCESSVIEW      -> get_cart            -> processGetCart()           -> get_cart_success            -> CARTVIEW
+   ADDTOCARTSUCCESSVIEW      -> update_cartcount    -> processUpdateCartCount()   -> update_cartcount_success    -> UPDATECARTCOUNTSUCCESSVIEW
+   UPDATECARTCOUNTSUCCESSVIEW-> get_cart            -> processGetCart()           -> get_cart_success            -> CARTVIEW
    CARTVIEW                  -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
    PRODUCTSVIEW              -> add_product_form    -> processAddProductForm()    -> add_product_form_succcess   -> ADDPRODUCTFORMSUCCESSVIEW
    ADDPRODUCTFORMSUCCESSVIEW -> add_product         -> processAddProduct()        -> add_product_succcess        -> ADDPRODUCTSUCCESSVIEW

@@ -3,7 +3,9 @@ import { Event, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { AppDataStore } from 'src/app/state-transitions/app-data.store';
-import { AppData } from 'src/app/state-transitions/state-transitions.model';
+import { AppEvent } from 'src/app/state-transitions/app-events.enum';
+import { doTransition } from 'src/app/state-transitions/state-transitions';
+import { AppData, StateTransitionData } from 'src/app/state-transitions/state-transitions.model';
 import { AppViewState } from 'src/app/state-transitions/view-states.enum';
 
 @Component({
@@ -14,11 +16,18 @@ import { AppViewState } from 'src/app/state-transitions/view-states.enum';
 export class CartButtonComponent implements OnInit {
 
   appData$: Observable<AppData>;
+  stData: StateTransitionData;
 
   constructor(private appDataStore: AppDataStore, private router: Router) {
   }
 
   ngOnInit(): void {
+    this.stData = new StateTransitionData();
+    this.stData.preEvent = AppEvent.update_cartcount;
+    this.stData = doTransition(this.appDataStore, this.stData);
+    if (this.stData.finalState !== AppViewState.UPDATECARTCOUNTSUCCESSVIEW) {
+      this.router.navigate(['/**'])
+    }
     this.appData$ = this.appDataStore.state$;
   }
 }
