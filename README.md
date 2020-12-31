@@ -1,6 +1,6 @@
 # Angular SPAs - A Development Pattern
 
-This project proposes a development pattern for Angular SPAs. The pattern sugggests the following steps:
+This project proposes a development pattern for Angular SPAs. The pattern suggests the following steps:
 
 1. Capture the SPA requirements into a set of state transitions.
    For the [demo example SPA](https://mapteb.github.io/angular-a-development-pattern), the state transitions considered are:
