@@ -17,7 +17,7 @@ This project proposes a development pattern for Angular SPAs. The pattern sugges
    PRODUCTDETAILSVIEW        -> add_to_cart         -> processAddToCart()         -> add_to_cart_success         -> ADDTOCARTSUCCESSVIEW
    ADDTOCARTSUCCESSVIEW      -> update_cartcount    -> processUpdateCartCount()   -> update_cartcount_success    -> UPDATECARTCOUNTSUCCESSVIEW
    UPDATECARTCOUNTSUCCESSVIEW-> get_cart            -> processGetCart()           -> get_cart_success            -> CARTVIEW
-   CARTVIEW                  -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSVIEW
+   CARTVIEW                  -> get_product_details -> processGetProductDetails() -> get_product_details_success -> PRODUCTDETAILSFORCARTVIEW
    PRODUCTSVIEW              -> add_product_form    -> processAddProductForm()    -> add_product_form_succcess   -> ADDPRODUCTFORMSUCCESSVIEW
    ADDPRODUCTFORMSUCCESSVIEW -> add_product         -> processAddProduct()        -> add_product_succcess        -> ADDPRODUCTSUCCESSVIEW
    ______________________________________________________________________________________________________________________________________
@@ -45,5 +45,5 @@ A demo of this project can be viewed [here](https://mapteb.github.io/angular-a-d
    </pre>
 
 and proceed with the remaining steps.  
-2. Guard conditions are easily implemented in one place - in the state-transitions.ts file.  
+2. Guard conditions are easily checked in one place - in the state-transitions.ts file.  
 3. The use of one component per pre-event helps in keeping the codebase modular and easily maintainable.   
