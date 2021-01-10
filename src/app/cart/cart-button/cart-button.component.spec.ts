@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 import { CartButtonComponent } from './cart-button.component';
 
 describe('CartButtonComponent', () => {
@@ -8,6 +9,10 @@ describe('CartButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        AppRoutingModule,
+        RouterTestingModule.withRoutes([]),
+    ],
       declarations: [ CartButtonComponent ]
     })
     .compileComponents();
