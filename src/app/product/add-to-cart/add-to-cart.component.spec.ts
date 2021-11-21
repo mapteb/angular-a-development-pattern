@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { AppViewState } from 'src/app/state-transitions/view-states.enum';
+import { AppRoutingModule } from '../../app-routing.module';
+import { AppViewState } from '../../state-transitions/view-states.enum';
 import { AddToCartComponent } from './add-to-cart.component';
 
 describe('AddToCartComponent', () => {

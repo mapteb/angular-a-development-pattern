@@ -1,10 +1,10 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppDataStore } from 'src/app/state-transitions/app-data.store';
-import { AppEvent } from 'src/app/state-transitions/app-events.enum';
-import { doTransition } from 'src/app/state-transitions/state-transitions';
-import { StateTransitionData } from 'src/app/state-transitions/state-transitions.model';
-import { AppViewState } from 'src/app/state-transitions/view-states.enum';
+import { AppDataStore } from '../../state-transitions/app-data.store';
+import { AppEvent } from '../../state-transitions/app-events.enum';
+import { doTransition } from '../../state-transitions/state-transitions';
+import { StateTransitionData } from '../../state-transitions/state-transitions.model';
+import { AppViewState } from '../../state-transitions/view-states.enum';
 
 @Component({
   selector: 'app-add-to-cart',

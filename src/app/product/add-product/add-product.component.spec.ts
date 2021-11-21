@@ -1,7 +1,7 @@
 import { ComponentFixture, getTestBed, inject, TestBed } from '@angular/core/testing';
 import { NavigationExtras, Router, RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppRoutingModule } from 'src/app/app-routing.module';
+import { AppRoutingModule } from '../../app-routing.module';
 import { Product } from '../product.model';
 import { AddProductComponent } from './add-product.component';
 
