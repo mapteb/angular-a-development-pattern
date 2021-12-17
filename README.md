@@ -47,6 +47,3 @@ A demo of this project can be viewed [here](https://mapteb.github.io/angular-a-d
 and proceed with the remaining steps.  
 2. Guard conditions are easily checked in one place - in the state-transitions.ts file.  
 3. The use of one component per pre-event helps in keeping the codebase modular and easily maintainable.   
-
-### Also See
-A nwewer version of this project is A New Aproach to Angular Develoment](https://github.com/mapteb/new-approach-to-angular-development)
